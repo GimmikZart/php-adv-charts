@@ -7,8 +7,13 @@
   font-family: sans-serif;
 }
 
-.boxchart {
-  width: 1920px;
-  height: 500px;
+section {
+  display: flex;
+  padding: 20px;
+}
 
+.box {
+  width: 50%;
+  padding: 20px;
+  
 }
