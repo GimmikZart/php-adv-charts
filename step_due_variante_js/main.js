@@ -6,7 +6,7 @@ $(document).ready(function(){
     method: "GET",
     success: function(data){
 
-      var mesi = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+      var mesi = getMonths();
 
       // GRAFICO UNO
       var fatturatoType = data.fatturato["type"]; // TIPO DI GRAFICO
@@ -102,3 +102,11 @@ function stampaChart(id, tipoGrafico, labels, data){
     }); //fine mychart
 
 } //FINE FUNZIONE STAMPACHART
+
+
+
+function getMonths(){
+  moment.locale("it");
+  var mesi = moment.months();
+  return mesi;
+}

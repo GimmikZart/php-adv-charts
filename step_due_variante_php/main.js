@@ -6,31 +6,37 @@ $(document).ready(function(){
     method: "GET",
     success: function(data){
 
-      var mesi = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+      var mesi = getMonths();
 
-      console.log(data);
+      // GRAFICO UNO
 
+      var fatturatoType = data[0];
 
+      var fatturatoTotale = data[1];
 
-      // stampaChart("chartFatturato", fatturatoType, mesi, fatturato);
-      //
-      // stampaChart("chartAgenti", fatturatoAgentType, nomiAgenti, fatturatoAgent);
+      //GRAFICO DUE
 
+      var fatturatoAgentType = data[2];
 
+      var nomeAgenti = data[3];
 
+      var fatturatoAgenti = data[4];
+
+      // stampo grafico linea fatturato totale
+      stampaChart("chartFatturato", fatturatoType, mesi, fatturatoTotale);
+
+      // stampo grafico torta fatturato per agente
+      stampaChart("chartAgenti", fatturatoAgentType, nomeAgenti, fatturatoAgenti);
 
     }, // fine success
     error: function(error){
       alert("ERRORE" + error);
     },
-
   }); // fine chiamata ajax
-
-
 }); //fine document ready
 
 
-// FUNZIONI GENERICHE
+// FUNZIONI GENERICHE -----------------------------------------------------------------------------------------
 
 function stampaChart(id, tipoGrafico, labels, data){
   var ctx = $("#" + id );
@@ -88,3 +94,11 @@ function stampaChart(id, tipoGrafico, labels, data){
     }); //fine mychart
 
 } //FINE FUNZIONE STAMPACHART
+
+
+
+function getMonths(){
+  moment.locale("it");
+  var mesi = moment.months();
+  return mesi;
+}
