@@ -12,16 +12,19 @@
 
 
       // GRAFICO DUE
-      $fatturatoAgentType = $graphs[fatturato_by_agent]["type"]; // TIPO DI GRAFICO
+      $fatturatoAgentType = $graphs["fatturato_by_agent"]["type"]; // TIPO DI GRAFICO
 
-      $arrayDataAgent = $graphs[fatturato_by_agent]["data"]; //grabbo il data array
+      $arrayDataAgent = $graphs["fatturato_by_agent"]["data"]; //grabbo il data array
 
       $nomiAgenti = array_keys($arrayDataAgent); // NOMI AGENTI
+
       $fatturatoAgent = []; // VALORI PER GRAFICO
 
       foreach ($arrayDataAgent as $fatturato ){
         $fatturatoAgent[] = $fatturato;
       }
+
+      
 
       $res = [$fatturatoType, $fatturatoTotale, $fatturatoAgentType, $nomiAgenti, $fatturatoAgent];
 

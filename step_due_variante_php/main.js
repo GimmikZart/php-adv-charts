@@ -96,7 +96,7 @@ function stampaChart(id, tipoGrafico, labels, data){
 } //FINE FUNZIONE STAMPACHART
 
 
-
+// FUNZIONE PER STAMPARE I MESI
 function getMonths(){
   moment.locale("it");
   var mesi = moment.months();
