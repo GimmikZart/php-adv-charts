@@ -23,7 +23,7 @@ $(document).ready(function(){
       for (var nomi in arrayDataAgent ){
         nomiAgenti.push(nomi);                         // ciclo l'array per estrapolare i dati che mi servono
         fatturatoAgent.push(arrayDataAgent[nomi]);
-      };
+      }
 
 
       stampaChart("chartFatturato", fatturatoType, mesi, fatturato);
