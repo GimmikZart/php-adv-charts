@@ -1,9 +1,16 @@
 
 $(document).ready(function(){
 
+  var urlParams = new URLSearchParams(window.location.search);
+  var myParam = urlParams.get('level');
+  console.log(myParam);
+
   $.ajax({
     url: "server.php",
     method: "GET",
+    data : {
+      level : myParam,
+    },
     success: function(data){
 
       var mesi = getMonths();
@@ -31,13 +38,13 @@ $(document).ready(function(){
       // GRAFICO TRE ---------------------------------------------
 
       var efficenzaType = data[5];
-        console.log(efficenzaType);
+
 
       var nomiTeam = data[6];
-      console.log(nomiTeam);
+
 
       var andamentoTeam = data[7];
-      console.log(andamentoTeam[1]);
+
 
       stampaCrossChart("chartAndamento", efficenzaType, mesi, andamentoTeam, nomiTeam);
 
